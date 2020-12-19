@@ -23,6 +23,7 @@ export class TentativasComponent implements OnInit, OnChanges {
       this.coracoes.shift();
       this.coracoes.push(new Coracao(false));
     }
+
   }
 
   public coracoes: Coracao[] = [
