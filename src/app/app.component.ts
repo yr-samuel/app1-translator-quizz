@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+ 
+  public jogoEmAndamento: boolean = true;
+  public resultado: string;
+
+  jogarNovamente(){
+    this.jogoEmAndamento = true;
+  }
+
+  encerrarJogo(tipo: string): void{
+    this.resultado = tipo;
+    this.jogoEmAndamento = false;
+  }
+
 }

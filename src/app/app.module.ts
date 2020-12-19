@@ -6,6 +6,7 @@ import {TopoComponent} from './topo/topo.component';
 import { PainelComponent } from './painel/painel.component';
 import { TentativasComponent } from './tentativas/tentativas.component';
 import { ProgressoComponent } from './progresso/progresso.component';
+import { VitoriaDerrotaComponent } from './vitoria-derrota/vitoria-derrota.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ProgressoComponent } from './progresso/progresso.component';
     TopoComponent,
     PainelComponent,
     TentativasComponent,
-    ProgressoComponent
+    ProgressoComponent,
+    VitoriaDerrotaComponent
   ],
   imports: [
     BrowserModule
