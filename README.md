@@ -1,4 +1,4 @@
-# App1
+# App1 - Translator Quizz
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.0.
 
