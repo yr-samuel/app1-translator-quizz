@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { appInitializerFactory } from '@angular/platform-browser/src/browser/server-transition';
-import { IfObservable } from 'rxjs/observable/IfObservable';
+import { Component, Output, EventEmitter } from '@angular/core';
 import Frase from './../shared/frase.model';
 import {FRASES} from './frases-mock';
 
@@ -9,7 +7,8 @@ import {FRASES} from './frases-mock';
   templateUrl: './painel.component.html',
   styleUrls: ['./painel.component.css']
 })
-export class PainelComponent implements OnInit {
+
+export class PainelComponent{
 
   public randomNumber: number = Math.floor(Math.random()*4);
   public inst: string = "Traduza a frase:"
@@ -23,11 +22,10 @@ export class PainelComponent implements OnInit {
   public progresso: number = 0;
   public tentativas: number = 3;
 
+  @Output() encerrarJogo = new EventEmitter();
+
   constructor() {  
     this.atualizaRodada();
-  }
-
-  ngOnInit() {
   }
 
   attResponse(event: Event){
@@ -36,18 +34,22 @@ export class PainelComponent implements OnInit {
 
   confirma(){
     if(this.rodadaFrase.fBr === this.texto){
-      alert('Acertou');
-
-      this.rodada++;
+      
       this.progresso = this.progresso + (100/this.frases.length);
-
+      this.rodada++;
+      
+      if(this.rodada === 4 ){
+        this.encerrarJogo.emit('ganhou')      
+      }
+      
       this.atualizaRodada();
+     
       
     }else{
       this.tentativas--;
-
+      
       if(this.tentativas === -1){
-        alert('Você perdeu todas as chances')
+        this.encerrarJogo.emit('perdeu')
       }
     }
     
