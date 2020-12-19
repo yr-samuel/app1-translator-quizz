@@ -9,7 +9,7 @@ npm install
 * Rode o projeto utilizando o comando
 
 ```
-ng n
+ng server
 ```
 
 * Caso esse comando não funcione, tente
